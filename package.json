@@ -1,0 +1,17 @@
+{
+  "name": "twitter-stable-diffusion-app",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "[Replicate](https://replicate.com?utm_source=project&utm_campaign=replit-node) is a platform for running machine learning models in the cloud. This Repl demonstrates how to run models like Stable Diffusion and BLIP using Node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cbh123",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.3.1",
+    "replicate": "^0.6.1",
+    "twitter": "^1.7.1"
+  }
+}
