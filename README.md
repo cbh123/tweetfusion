@@ -1,6 +1,8 @@
-# Replicate
+# TweetFusion
 
-[Replicate](https://replicate.com?utm_source=project&utm_campaign=replit-node) is a platform for running machine learning models in the cloud. This Repl demonstrates how to run models like Stable Diffusion and BLIP using Node.js.
+Update your Twitter header image with generative AI. 
+
+Runs on repl.it and powered by [Replicate](https://replicate.com?utm_source=project&utm_campaign=replit-node), a platform for running machine learning models in the cloud.
 
 ## Demo
 
