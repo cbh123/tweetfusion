@@ -16,12 +16,14 @@ async function updateTwitterBanner(bannerUrl) {
   twitter.post(
     "account/update_profile_banner", // endpoint
     { banner: bannerString }, // param
-    function (error, tweet, response) {
+    function(error, _tweet, _response) {
       //callback
 
-      if (error) throw error;
-      console.log(tweet); // Tweet body.
-      console.log(response); // Raw response object.
+      if (error) {
+        throw error
+      } else {
+        console.log("✅ Success! Twitter header image updated.")
+      }
     }
   );
 }
@@ -41,9 +43,7 @@ async function start() {
   });
 
   const prompts = await getPrompts();
-  const randomPrompt = prompts
-
-  prompt = prompts[Math.floor(Math.random() * prompts.length)];
+  const prompt = prompts[Math.floor(Math.random() * prompts.length)];
 
   // Find more models at https://replicate.com/explore
   const models = {
@@ -58,7 +58,7 @@ async function start() {
   input = { prompt: prompt, image_dimensions: "512x512" };
   console.log(`Generating an image of "${input.prompt}"`);
   output = await replicate.run(models.stableDiffusion, { input });
-  console.log(output);
+  console.log(`🖼️ Output: ${output[0]}`);
 
   // updating twitter banner...
   updateTwitterBanner(output[0]);

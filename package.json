@@ -5,6 +5,7 @@
   "description": "[Replicate](https://replicate.com?utm_source=project&utm_campaign=replit-node) is a platform for running machine learning models in the cloud. This Repl demonstrates how to run models like Stable Diffusion and BLIP using Node.js.",
   "main": "index.js",
   "scripts": {
+    "start": "node run index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "cbh123",
