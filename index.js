@@ -1,5 +1,7 @@
 import Replicate from "replicate";
 import Twitter from "twitter";
+import fs from "fs";
+import prompts from "./prompts.js";
 
 async function updateTwitterBanner(bannerUrl) {
   const twitter = new Twitter({
@@ -28,13 +30,6 @@ async function updateTwitterBanner(bannerUrl) {
   );
 }
 
-// Gets the prompts from https://github.com/replicate/rtv/blob/main/prompts.json
-async function getPrompts() {
-  const promptsURL = "https://raw.githubusercontent.com/replicate/rtv/main/prompts.json";
-  const prompts = await fetch(promptsURL);
-  const promptsJSON = await prompts.json();
-  return promptsJSON;
-}
 
 async function start() {
   const replicate = new Replicate({
@@ -42,7 +37,6 @@ async function start() {
     auth: process.env.REPLICATE_API_TOKEN,
   });
 
-  const prompts = await getPrompts();
   const prompt = prompts[Math.floor(Math.random() * prompts.length)];
 
   // Find more models at https://replicate.com/explore
@@ -59,6 +53,13 @@ async function start() {
   console.log(`Generating an image of "${input.prompt}"`);
   output = await replicate.run(models.stableDiffusion, { input });
   console.log(`🖼️ Output: ${output[0]}`);
+
+  const data = fs.readFileSync('outputs.json');
+  let outputs = JSON.parse(data);
+  outputs.push(output[0])
+
+  // save to outputs list
+  fs.writeFileSync("./outputs.json", JSON.stringify(outputs));
 
   // updating twitter banner...
   updateTwitterBanner(output[0]);
