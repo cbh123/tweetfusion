@@ -1,12 +1,9 @@
 # TweetFusion
 
-Update your Twitter header image with generative AI. 
+Update your Twitter header image with generative AI.
 
-Runs on repl.it and powered by [Replicate](https://replicate.com?utm_source=project&utm_campaign=replit-node), a platform for running machine learning models in the cloud.
+Powered by [Replicate](https://replicate.com?utm_source=project&utm_campaign=tweetfusion), a platform for running machine learning models in the cloud.
 
-## Demo
-
-[ ] record a loom
 
 ## How to use it
 
@@ -46,9 +43,14 @@ The access token will be your `TWITTER_ACCESS_TOKEN_KEY` and the secret will be 
 
 ##### Run!
 
-Now, add all your secrets to your Repl. On Replit.com, click the 🔒 **Secrets** button in the Tools sidebar, then secrets for your `REPLICATE_API_TOKEN`, `TWITTER_CONSUMER_KEY`, `TWITTER_CONSUMER_SECRET`, `TWITTER_ACCESS_TOKEN_KEY` and `TWITTER_TOKEN_SECRET`.
+Now, add all your secrets to your Repl.
 
-Next, click `Run`!
+If you're running on Replit:
+Click the 🔒 **Secrets** button in the Tools sidebar, then secrets for your `REPLICATE_API_TOKEN`, `TWITTER_CONSUMER_KEY`, `TWITTER_CONSUMER_SECRET`, `TWITTER_ACCESS_TOKEN_KEY` and `TWITTER_TOKEN_SECRET`.
+
+Otherwise, put the secrets in a `.env` file that is .gitignored.
+
+Finally, run it with `npm run start`.
 
 
 ## See also:
@@ -59,5 +61,3 @@ Next, click `Run`!
 
 See [Replit's docs on Secrets](https://docs.replit.com/programming-ide/workspace-features/storing-sensitive-information-environment-variables) if you need more guidance here.
 - [Replicate API docs](https://replicate.com/docs/reference/http?utm_source=project&utm_campaign=replit-node)
-
-
