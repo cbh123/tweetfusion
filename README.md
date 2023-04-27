@@ -52,6 +52,7 @@ Otherwise, put the secrets in a `.env` file that is .gitignored.
 
 Finally, run it with `npm run start`.
 
+<img width="896" alt="Screenshot 2023-04-27 at 4 26 00 PM" src="https://user-images.githubusercontent.com/14149230/234982903-f685a905-489e-45d7-8bde-8e4fd8449e86.png">
 
 ## See also:
 
