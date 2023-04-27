@@ -2,6 +2,10 @@ import Replicate from "replicate";
 import Twitter from "twitter";
 import fs from "fs";
 import prompts from "./prompts.js";
+import fetch from "node-fetch";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 async function updateTwitterBanner(bannerUrl) {
   const twitter = new Twitter({
@@ -18,18 +22,17 @@ async function updateTwitterBanner(bannerUrl) {
   twitter.post(
     "account/update_profile_banner", // endpoint
     { banner: bannerString }, // param
-    function(error, _tweet, _response) {
+    function (error, _tweet, _response) {
       //callback
 
       if (error) {
-        throw error
+        throw error;
       } else {
-        console.log("✅ Success! Twitter header image updated.")
+        console.log("✅ Success! Twitter header image updated.");
       }
     }
   );
 }
-
 
 async function start() {
   const replicate = new Replicate({
@@ -54,9 +57,9 @@ async function start() {
   output = await replicate.run(models.stableDiffusion, { input });
   console.log(`🖼️ Output: ${output[0]}`);
 
-  const data = fs.readFileSync('outputs.json');
+  const data = fs.readFileSync("outputs.json");
   let outputs = JSON.parse(data);
-  outputs.push(output[0])
+  outputs.push(output[0]);
 
   // save to outputs list
   fs.writeFileSync("./outputs.json", JSON.stringify(outputs));
