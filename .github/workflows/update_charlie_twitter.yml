@@ -2,7 +2,7 @@ name: Update Charlie's Twitter
 
 on:
   schedule:
-    - cron: "*/5 * * * *" # Run every 5min
+    - cron: "0 0 * * *" # Run every day
   workflow_dispatch:
 
 jobs:
